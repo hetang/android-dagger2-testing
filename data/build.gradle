@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def dataDependencies = rootProject.ext.dataDependencies
+    def dataTestDependencies = rootProject.ext.dataTestDependencies
+
+    dataDependencies.with {
+        implementation kotlin
+        implementation kotlinReflect
+
+        implementation gson
+
+        implementation dagger
+        kapt daggerCompiler
+        compileOnly javaxAnnotations
+    }
+
+    dataTestDependencies.with {
+        androidTestImplementation(espresso, {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+
+        testImplementation jUnit
+        testImplementation json
+    }
+}

@@ -1,0 +1,88 @@
+ext {
+    // Kotlin
+    kotlinVersion = '1.1.50'
+
+    // Android
+    androidBuildToolsVersion = "26.0.2"
+    androidMinSdkVersion = 19
+    androidTargetSdkVersion = 26
+    androidCompileSdkVersion = 26
+
+    //Support library version
+    appCompatVersion = '26.0.2'
+    dataBindingVersion = '2.3.0'
+
+    gsonVersion = '2.8.2'
+
+    rxJavaVersion = '2.1.0'
+    rxAndroidVersion = '2.0.1'
+    rxBindingVersion = '2.0.0'
+    rxKotlinVersion = '2.1.0'
+
+    // Testing
+    espressoCoreVersion = '2.2.2'
+    espressoContribVersion = '2.2'
+    dexmakerMockitoVersion = '2.2.0'
+
+    jUnitVersion = '4.12'
+
+    // Dagger
+    daggerVersion = '2.11'
+    javaxAnnotationVersion = '3.1.1'
+    daggerMockVersion = '0.6.6'
+
+    presentationDependencies = [
+            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
+            dataBindingUtils: "com.android.databinding:compiler:${dataBindingVersion}",
+            rxJava          : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid       : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            rxBinding       : "com.jakewharton.rxbinding2:rxbinding:${rxBindingVersion}",
+            rxKotlin        : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            appCompat       : "com.android.support:appcompat-v7:${appCompatVersion}",
+            recyclerView    : "com.android.support:recyclerview-v7:${appCompatVersion}",
+            supportDesign   : "com.android.support:design:${appCompatVersion}",
+            supportUtils    : "com.android.support:support-core-utils:${appCompatVersion}",
+            daggerCompiler  : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            javaxAnnotations: "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
+    ]
+
+    presentationTestDependencies = [
+            espresso       : "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}",
+            jUnit          : "junit:junit:${jUnitVersion}",
+            dexmakerMockito: "com.linkedin.dexmaker:dexmaker-mockito:${dexmakerMockitoVersion}",
+            espressoContrib: "com.android.support.test.espresso:espresso-contrib:${espressoContribVersion}",
+            espressoIntents: "com.android.support.test.espresso:espresso-intents:${espressoCoreVersion}",
+            daggerMock     : "com.github.fabioCollini:DaggerMock:${daggerMockVersion}"
+    ]
+
+    domainDependencies = [
+            supportUtils     : "com.android.support:support-core-utils:${appCompatVersion}",
+            supportAnnotation: "com.android.support:support-annotations:${appCompatVersion}",
+            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
+            rxAndroid        : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            daggerCompiler   : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            javaxAnnotations : "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
+    ]
+
+    domainTestDependencies = [
+            espresso       : "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}",
+            jUnit          : "junit:junit:${jUnitVersion}",
+            espressoContrib: "com.android.support.test.espresso:espresso-contrib:${espressoContribVersion}"
+    ]
+
+    dataDependencies = [
+            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
+            kotlinReflect   : "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}",
+            gson            : "com.google.code.gson:gson:${gsonVersion}",
+            dagger          : "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler  : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            javaxAnnotations: "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
+    ]
+
+    dataTestDependencies = [
+            espresso       : "com.android.support.test.espresso:espresso-core:${espressoCoreVersion}",
+            jUnit          : "junit:junit:${jUnitVersion}",
+            espressoContrib: "com.android.support.test.espresso:espresso-contrib:${espressoContribVersion}",
+            json           : "org.json:json:20080701"
+    ]
+}
