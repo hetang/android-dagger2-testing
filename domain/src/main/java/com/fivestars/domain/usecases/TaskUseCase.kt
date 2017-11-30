@@ -13,8 +13,8 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Created by Hetang.Shah on 11/7/17.
  */
-class AddTaskUseCase(private val context: Context?) : BaseUseCase<Unit> {
-    private lateinit var task: TaskItem
+open class AddTaskUseCase(private val context: Context?) : BaseUseCase<Unit> {
+    lateinit var task: TaskItem
 
     fun addParameters(task: TaskItem) {
         this.task = task
@@ -34,7 +34,7 @@ class AddTaskUseCase(private val context: Context?) : BaseUseCase<Unit> {
     }
 }
 
-class GetTaskUseCase(private val context: Context?) : BaseUseCase<List<TaskItem>> {
+open class GetTaskUseCase(private val context: Context?) : BaseUseCase<List<TaskItem>> {
     override fun execute(): Observable<List<TaskItem>> {
         return Observable.create { subscriber: ObservableEmitter<List<TaskItem>> ->
             subscriber.onNext(context?.getTask() ?: mutableListOf())

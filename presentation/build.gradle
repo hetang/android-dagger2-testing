@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
@@ -10,13 +11,23 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.fivestars.dagger2app.TestRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 }
 
@@ -50,6 +61,13 @@ dependencies {
         implementation recyclerView
         implementation supportDesign
         implementation supportUtils
+
+        //Dagger Android
+        compile daggerAndroid
+        compile daggerAndroidSupport
+        kapt daggerCompiler
+        kapt daggerAndroidCompiler
+        provided javaxAnnotations
     }
 
     testDependencies.with {
@@ -73,8 +91,7 @@ dependencies {
             exclude module: 'support-annotations'
         })
 
-        androidTestImplementation daggerMock
-        testImplementation daggerMock
+        kaptAndroidTest daggerCompiler
     }
 }
 

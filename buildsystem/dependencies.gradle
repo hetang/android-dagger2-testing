@@ -32,18 +32,21 @@ ext {
     daggerMockVersion = '0.6.6'
 
     presentationDependencies = [
-            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
-            dataBindingUtils: "com.android.databinding:compiler:${dataBindingVersion}",
-            rxJava          : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
-            rxAndroid       : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
-            rxBinding       : "com.jakewharton.rxbinding2:rxbinding:${rxBindingVersion}",
-            rxKotlin        : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            appCompat       : "com.android.support:appcompat-v7:${appCompatVersion}",
-            recyclerView    : "com.android.support:recyclerview-v7:${appCompatVersion}",
-            supportDesign   : "com.android.support:design:${appCompatVersion}",
-            supportUtils    : "com.android.support:support-core-utils:${appCompatVersion}",
-            daggerCompiler  : "com.google.dagger:dagger-compiler:${daggerVersion}",
-            javaxAnnotations: "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
+            kotlin               : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
+            dataBindingUtils     : "com.android.databinding:compiler:${dataBindingVersion}",
+            rxJava               : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid            : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            rxBinding            : "com.jakewharton.rxbinding2:rxbinding:${rxBindingVersion}",
+            rxKotlin             : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            appCompat            : "com.android.support:appcompat-v7:${appCompatVersion}",
+            recyclerView         : "com.android.support:recyclerview-v7:${appCompatVersion}",
+            supportDesign        : "com.android.support:design:${appCompatVersion}",
+            supportUtils         : "com.android.support:support-core-utils:${appCompatVersion}",
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerAndroid        : "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerAndroidSupport : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerAndroidCompiler: "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            javaxAnnotations     : "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
     ]
 
     presentationTestDependencies = [
@@ -52,7 +55,8 @@ ext {
             dexmakerMockito: "com.linkedin.dexmaker:dexmaker-mockito:${dexmakerMockitoVersion}",
             espressoContrib: "com.android.support.test.espresso:espresso-contrib:${espressoContribVersion}",
             espressoIntents: "com.android.support.test.espresso:espresso-intents:${espressoCoreVersion}",
-            daggerMock     : "com.github.fabioCollini:DaggerMock:${daggerMockVersion}"
+            daggerMock     : "com.github.fabioCollini:DaggerMock:${daggerMockVersion}",
+            daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
     ]
 
     domainDependencies = [
@@ -60,6 +64,7 @@ ext {
             supportAnnotation: "com.android.support:support-annotations:${appCompatVersion}",
             kotlin           : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
             rxAndroid        : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            dagger           : "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler   : "com.google.dagger:dagger-compiler:${daggerVersion}",
             javaxAnnotations : "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
     ]

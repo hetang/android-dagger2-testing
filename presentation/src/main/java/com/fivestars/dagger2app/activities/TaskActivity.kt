@@ -8,10 +8,12 @@ import com.fivestars.dagger2app.R
 import com.fivestars.dagger2app.adapter.AddTaskAdapter
 import com.fivestars.dagger2app.presenters.TaskPresenter
 import com.fivestars.data.models.TaskItem
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_add_task.btnAdd
 import kotlinx.android.synthetic.main.activity_add_task.task_container
 import kotlinx.android.synthetic.main.activity_add_task.task_input
 import kotlinx.android.synthetic.main.activity_add_task.task_items
+import javax.inject.Inject
 
 interface TaskView {
     fun onSaveCompleted(task: TaskItem)
@@ -19,11 +21,13 @@ interface TaskView {
     fun showTasks(tasks: List<TaskItem>)
 }
 
-class TaskActivity : AppCompatActivity(), TaskView {
+open class TaskActivity : AppCompatActivity(), TaskView {
     val taskAdapter = AddTaskAdapter()
-    val taskPresenter = TaskPresenter(this)
+    @Inject
+    lateinit var taskPresenter: TaskPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_task)
 
