@@ -31,9 +31,9 @@ abstract class TestTaskModule {
 
         val mock = Mockito.mock(AddTaskUseCase::class.java)
 
-        replace(mock.execute()).thenAnswer {
+        replace(mock.execute()).with(Observable.just(Unit)).thenAnswer({
             mockItems.add(mock.task)
-        }.with(Observable.just(Unit))
+        })
 
         return mock
     }
